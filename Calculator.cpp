@@ -11,10 +11,9 @@ main()
 	
 	printf("Olá, para iniciar o programa digite seu nome: ");
 	scanf("%s", &nome);
-	
-	
+
 	do{
-		printf("\nOlá %s, logo a baixo temos as opções de calculo, cada uma representada por uma letra:", nome);
+		printf("\nOlá %s, logo a baixo temos as opções de calculo, cada uma representada por uma letra:\n", nome);
 		
 		printf("\nSoma(a)");
 		printf("\nSubtração(b)");
@@ -25,97 +24,48 @@ main()
 		printf("\n\nDigite a letra de qual tipo de calculo você deseja resolver: ");
 		scanf("%c", &tipo);
 		
-		if(tipo == 'a' || tipo == 'A'){
+		if(tipo == 'a' || tipo == 'A' || tipo == 'b' || tipo == 'B' || tipo == 'd' || tipo == 'D' || tipo == 'c' || tipo == 'C'){
 			
 			do{
-								
-				printf("\nDigite um valor: ");
-				scanf("%d", &num1);
-				
-				printf("\nDigite um valor: ");
-				scanf("%d", &num2);
 			
+			printf("\nDigite um valor: ");
+			scanf("%d", &num1);
+					
+			printf("\nDigite um valor: ");
+			scanf("%d", &num2);
+				
+			if(tipo == 'a' || tipo == 'A'){
+									
 				resultado = num1 + num2;
-			
-				printf ("%d", resultado);
+	
+			}else if(tipo == 'b' || tipo == 'B'){
 				
-				fflush(stdin);
-				printf("\nContinuar? sim(s) ou não(n) ");
-				scanf("%c", &resposta);
-				
-			}while(resposta == 's' || resposta == 'S');
-
-		}else if(tipo == 'b' || tipo == 'B'){
-			
-				do{
-								
-				printf("\nDigite um valor: ");
-				scanf("%d", &num1);
-				
-				printf("\nDigite um valor: ");
-				scanf("%d", &num2);
-			
 				resultado = num1 - num2;
-			
-				printf ("%d", resultado);
 				
-				fflush(stdin);
-				printf("\nContinuar? sim(s) ou não(n) ");
-				scanf("%c", &resposta);
+			}else if(tipo == 'c' || tipo == 'C'){
 				
-			}while(resposta == 's' || resposta == 'S');
-			
-		}else if(tipo == 'c' || tipo == 'C'){
-			
-				do{
-								
-				printf("\nDigite um valor: ");
-				scanf("%d", &num1);
-				
-				printf("\nDigite um valor: ");
-				scanf("%d", &num2);
-			
 				resultado = num1 * num2;
-			
-				printf ("%d", resultado);
 				
-				fflush(stdin);
-				printf("\nContinuar? sim(s) ou não(n) ");
-				scanf("%c", &resposta);
+			}else if(tipo == 'd' || tipo == 'D'){
 				
-			}while(resposta == 's' || resposta == 'S');
+				resultado = num1 / num2;	
+			}
 			
-		}else if(tipo == 'd' || tipo == 'D'){
+			printf("\n%d\n", resultado);
 			
-				do{
-								
-				printf("\nDigite um valor: ");
-				scanf("%d", &num1);
-				
-				printf("\nDigite um valor: ");
-				scanf("%d", &num2);
+			fflush(stdin);
+			printf("Deseja repetir a operação? sim(s), não(n)");
+			scanf("%c", &resposta);
 			
-				resultado = num1 / num2;
-			
-				printf ("%d", resultado);
-				
-				fflush(stdin);
-				printf("\nContinuar? sim(s) ou não(n) ");
-				scanf("%c", &resposta);
-				
-			}while(resposta == 's' || resposta == 'S');
-		}else {
-			printf("\nAlgo não está certo\n");
-		}
+		}while(resposta == 's' || resposta == 's');
+		
+	}else {
+		printf("\nAlgo não está certo\n");
+	}
 		
 		fflush(stdin);
 		printf("\nDeseja realizar mais algum calculo? sim(s) não(n)\n");
 		scanf("%c", &resposta);
 		
 	}while(resposta == 's' || resposta == 'S');
-	
 }
-	
-	
-	
-
