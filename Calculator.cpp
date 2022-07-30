@@ -6,66 +6,93 @@ main()
 {
 	setlocale(LC_ALL, "Portuguese");
 	
-	char resposta, tipo, nome[100];
-	int num1, num2, resultado;
+	char resposta, tipo, op, conta, nome[100];
+	float num1, num2, resultado;
+	int contador = 1;
 	
-	printf("Olá, para iniciar o programa digite seu nome: ");
+	printf("Olá, como posso te chamar? ");
 	scanf("%s", &nome);
-
 	do{
-		printf("\nOlá %s, logo a baixo temos as opções de calculo, cada uma representada por uma letra:\n", nome);
+		contador = 1;//Zerando o contador devolta para um, para realizar o lup normalmente//
 		
-		printf("\nSoma(a)");
-		printf("\nSubtração(b)");
-		printf("\nMutiplicação(c)");
-		printf("\nDivição(d)");
+		printf("\n%s, logo abaixo é apresentado nosso catalogo de calculos que posso resolver", nome);
+		printf("\nLembrando que cada calculo representado por uma letra, digite somente a letra para ecolher\n");
+	
+		printf("\nContas básicas (A)\n");
+		printf("\nJuros simples e composto(B)\n");
 		
 		fflush(stdin);
-		printf("\n\nDigite a letra de qual tipo de calculo você deseja resolver: ");
-		scanf("%c", &tipo);
+		printf("\nEm qual tipo de calculo psso te ajudar? ");
+		scanf("%c", &conta);
 		
-		if(tipo == 'a' || tipo == 'A' || tipo == 'b' || tipo == 'B' || tipo == 'd' || tipo == 'D' || tipo == 'c' || tipo == 'C'){
+		do{
+			if(conta == 'a' || conta == 'A'){
+				
+				for(contador = contador; contador <= 1; contador ++){
+					printf("\n%s, me informe qual é a letra do calculo básico que quer que eu resolva:\n", nome);
 			
-			do{
-			
-			printf("\nDigite um valor: ");
-			scanf("%d", &num1);
+					printf("\nSoma(a)");
+					printf("\nSubtração(b)");
+					printf("\nMutiplicação(c)");
+					printf("\nDivição(d)");
 					
-			printf("\nDigite um valor: ");
-			scanf("%d", &num2);
+					fflush(stdin);
+					printf("\n\nDigite a letra de qual tipo de calculo você deseja resolver: ");
+					scanf("%c", &tipo);
+				}
+					
+				if(tipo == 'a' || tipo == 'A' || tipo == 'b' || tipo == 'B' || tipo == 'd' || tipo == 'D' || tipo == 'c' || tipo == 'C'){
 				
-			if(tipo == 'a' || tipo == 'A'){
-									
-				resultado = num1 + num2;
-	
-			}else if(tipo == 'b' || tipo == 'B'){
-				
-				resultado = num1 - num2;
-				
-			}else if(tipo == 'c' || tipo == 'C'){
-				
-				resultado = num1 * num2;
-				
-			}else if(tipo == 'd' || tipo == 'D'){
-				
-				resultado = num1 / num2;	
+					printf("\nDigite um valor: ");
+					scanf("%f", &num1);
+								
+					printf("\nDigite um valor: ");
+					scanf("%f", &num2);
+						
+					if(tipo == 'a' || tipo == 'A'){
+													
+						resultado = num1 + num2;
+						op = '+';
+					
+					}else if(tipo == 'b' || tipo == 'B'){
+						
+						resultado = num1 - num2;
+						op = '-';
+						
+					}else if(tipo == 'c' || tipo == 'C'){
+						
+						resultado = num1 * num2;
+						op = '*';
+					
+					}else if(tipo == 'd' || tipo == 'D'){
+						
+						resultado = num1 / num2;
+						op = '/';	
+					}
+						
+					printf("\n%0.2f %c %0.2f = %0.2f\n", num1, op, num2, resultado);
+			
+				}else {
+					printf("\nAlgo não está certo\n");		
+				}
+			
 			}
-			
-			printf("\n%d\n", resultado);
-			
+			if(conta == 'b' || conta == 'B'){
+				
+				
+			}
+
 			fflush(stdin);
 			printf("Deseja repetir a operação? sim(s), não(n)");
 			scanf("%c", &resposta);
 			
+						
 		}while(resposta == 's' || resposta == 's');
-		
-	}else {
-		printf("\nAlgo não está certo\n");
-	}
-		
+
+	
 		fflush(stdin);
 		printf("\nDeseja realizar mais algum calculo? sim(s) não(n)\n");
 		scanf("%c", &resposta);
-		
-	}while(resposta == 's' || resposta == 'S');
+			
+	}while(resposta == 's' || resposta == 's');
 }
